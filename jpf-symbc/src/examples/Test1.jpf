@@ -1,0 +1,7 @@
+target=Test1
+
+symbolic.method=Test1.myMethod(sym#sym)
+
+classpath=${jpf-symbc}/src/examples
+
+symbolic.debug=true

@@ -1,0 +1,3 @@
+[SEVERE] JPF configuration error: unknown enum value for cg.randomize_choices = random
+> used within "vm.class" instantiation of class gov.nasa.jpf.vm.SingleProcessVM
+[SEVERE] JPF terminated
