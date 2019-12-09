@@ -1,0 +1,9 @@
+target=Test
+classpath=${jpf-symbc}/build/examples
+sourcepath=${jpf-symbc}/src/examples
+symbolic.method = Test.myMethod(sym#sym)
+
+symbolic.dp=coral
+listener = .symbc.SymbolicListener
+
+search.multiple_errors=true

@@ -1,0 +1,20 @@
+target=PriorityQueue
+
+symbolic.method=PriorityQueue.push(sym);
+
+classpath=${jpf-symbc}/build/examples
+
+symbolic.debug=true
+symbolic.min_int=-100
+symbolic.max_int=100
+symbolic.min_long=-100
+symbolic.max_long=100
+symbolic.lazy=on
+
+#symbolic.arrays=true
+#search.depth_limit = 25
+cg.randomize_choices= VAR_SEED
+search.class = .search.heuristic.BFSHeuristic
+#symbolic.dp=no_solver
+vm.storage.class=nil
+listener = gov.nasa.jpf.symbc.sequences.SymbolicSequenceListener
