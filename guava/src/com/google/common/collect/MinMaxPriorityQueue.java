@@ -365,6 +365,7 @@ public final class MinMaxPriorityQueue<E> extends AbstractQueue<E> {
   @CanIgnoreReturnValue
   public E removeLast() {
     if (isEmpty()) {
+      System.out.println("here");
       throw new NoSuchElementException();
     }
     return removeAndGet(getMaxElementIndex());

@@ -47,7 +47,7 @@ import junit.framework.TestSuite;
  * @author Sverre Sundsdal
  */
 @GwtCompatible(emulated = true)
-public class MinMaxPriorityQueueTestCustom extends TestCase {
+public class MinMaxPriorityQueueTestCustomOrigin extends TestCase {
 
     private void offerAElementToQueue(Integer[] init, int ele, boolean ascending, boolean full,
                                       int size, boolean isFull, Integer firstElement) {
@@ -141,36 +141,8 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
         MinMaxPriorityQueue<Integer> queue = MinMaxPriorityQueue.create(single);
         assertEquals(single.size(), queue.size());
     }
-    public void testCreationSingleInteger2() {
-        int singleInteger = -32132313;
-        ArrayList<Integer> single = new ArrayList<>();
-        single.add(singleInteger);
-        MinMaxPriorityQueue<Integer> queue = MinMaxPriorityQueue.create(single);
-        assertEquals(single.size(), queue.size());
-    }
-    public void testCreationSingleInteger3() {
-        int singleInteger = 32132313;
-        ArrayList<Integer> single = new ArrayList<>();
-        single.add(singleInteger);
-        MinMaxPriorityQueue<Integer> queue = MinMaxPriorityQueue.create(single);
-        assertEquals(single.size(), queue.size());
-    }
     public void testCreationSingleString() {
         String singleString = "testString";
-        ArrayList<String> single = new ArrayList<>();
-        single.add(singleString);
-        MinMaxPriorityQueue<String> queue = MinMaxPriorityQueue.create(single);
-        assertEquals(single.size(), queue.size());
-    }
-    public void testCreationSingleEmptyString() {
-        String singleString = "";
-        ArrayList<String> single = new ArrayList<>();
-        single.add(singleString);
-        MinMaxPriorityQueue<String> queue = MinMaxPriorityQueue.create(single);
-        assertEquals(single.size(), queue.size());
-    }
-    public void testCreationSingleLongString() {
-        String singleString = "test Sשּׁtringinginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginginging\n";
         ArrayList<String> single = new ArrayList<>();
         single.add(singleString);
         MinMaxPriorityQueue<String> queue = MinMaxPriorityQueue.create(single);
@@ -192,15 +164,6 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
         MinMaxPriorityQueue<Integer> queue = MinMaxPriorityQueue.create(two);
         assertEquals(two.size(), queue.size());
     }
-    public void testCreationTwoInteger2() {
-        int firstInteger = -47105101;
-        int secondInteger = -1;
-        ArrayList<Integer> two = new ArrayList<>();
-        two.add(firstInteger);
-        two.add(secondInteger);
-        MinMaxPriorityQueue<Integer> queue = MinMaxPriorityQueue.create(two);
-        assertEquals(two.size(), queue.size());
-    }
     public void testCreationTwoString() {
         String firstString = "first";
         String secondString = "second";
@@ -210,10 +173,6 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
         MinMaxPriorityQueue<String> queue = MinMaxPriorityQueue.create(two);
         assertEquals(two.size(), queue.size());
     }
-
-
-
-
     public void testCreationTwoNode() {
         Node firstNode = new Node(0);
         Node secondNode = new Node(-1);
@@ -234,26 +193,7 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
         MinMaxPriorityQueue<Integer> queue = MinMaxPriorityQueue.orderedBy(Ordering.natural().reverse()).create(two);
         assertEquals(two.size(), queue.size());
     }
-    public void testCreationReverseTwoInteger2() {
-        int firstInteger = -47105101;
-        int secondInteger = -1;
-        ArrayList<Integer> two = new ArrayList<>();
-        two.add(firstInteger);
-        two.add(secondInteger);
-        MinMaxPriorityQueue<Integer> queue = MinMaxPriorityQueue.orderedBy(Ordering.natural().reverse()).create(two);
-        assertEquals(two.size(), queue.size());
-    }
     public void testCreationReverseTwoString() {
-        String firstString = "ff\n" +
-                "  fffgifgirst";
-        String secondString = "";
-        ArrayList<String> two = new ArrayList<>();
-        two.add(firstString);
-        two.add(secondString);
-        MinMaxPriorityQueue<String> queue = MinMaxPriorityQueue.orderedBy(Ordering.natural().reverse()).create(two);
-        assertEquals(two.size(), queue.size());
-    }
-    public void testCreationReverseTwoString2() {
         String firstString = "first";
         String secondString = "second";
         ArrayList<String> two = new ArrayList<>();
@@ -264,7 +204,7 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
     }
     public void testCreationReverseTwoNode() {
         Node firstNode = new Node(0);
-        Node secondNode = new Node(-877887);
+        Node secondNode = new Node(-1);
         ArrayList<Node> two = new ArrayList<>();
         two.add(firstNode);
         two.add(secondNode);
@@ -277,12 +217,6 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
     public void testCreationNInteger() {
         ArrayList<Integer> N = new ArrayList<>();
         N.addAll(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
-        MinMaxPriorityQueue<Integer> queue = MinMaxPriorityQueue.create(N);
-        assertEquals(N.size(), queue.size());
-    }
-    public void testCreationNInteger2() {
-        ArrayList<Integer> N = new ArrayList<>();
-        N.addAll(Arrays.asList(1, 2, 3, 4, 5, 1, 7, 8, 9, 10));
         MinMaxPriorityQueue<Integer> queue = MinMaxPriorityQueue.create(N);
         assertEquals(N.size(), queue.size());
     }
@@ -359,7 +293,7 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
         assertEquals(secondInteger, peek);
     }
     public void testPeekLastTwoString() {
-        String firstString = "";
+        String firstString = "first";
         String secondString = "second";
         ArrayList<String> two = new ArrayList<>();
         two.add(firstString);
@@ -775,36 +709,6 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
         assertEquals(q.size(), 0);
     }
 
-    public void testRemoveLastWithIntegerMinHeapContainsOneElement2() {
-        MinMaxPriorityQueue<Integer> q = MinMaxPriorityQueue.create();
-        q.add(1);
-        q.removeLast();
-        try{
-        q.removeLast();}
-        catch (Exception e){
-
-        }
-        assertEquals(q.size(), 0);
-    }
-
-    public void testRemoveAtWithIntegerMinHeapContainsOneElement() {
-        MinMaxPriorityQueue<Integer> q = MinMaxPriorityQueue.create();
-        q.add(1);
-        try {
-            q.removeAt(1);
-        }catch (Exception e){
-
-        }
-        assertEquals(q.size(), 0);
-    }
-
-    public void testRemoveAtWithIntegerMinHeapContainsOneElement2() {
-        MinMaxPriorityQueue<Integer> q = MinMaxPriorityQueue.create();
-        q.add(1);
-        q.removeAt(0);
-        assertEquals(q.size(), 0);
-    }
-
     public void testRemoveLastWithStringMinHeapContainsOneElement() {
         MinMaxPriorityQueue<String> q = MinMaxPriorityQueue.create();
         q.add("abc");
@@ -991,8 +895,8 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
     public void testPollFirstWithIntegerMaxHeapContainsTwoElements() {
         MinMaxPriorityQueue<Integer> q = MinMaxPriorityQueue.orderedBy(Ordering.natural().reverse()).create();
         q.add(1);
-        q.add(Integer.MAX_VALUE);
-        assertEquals(q.pollFirst().intValue(), Integer.MAX_VALUE);
+        q.add(2);
+        assertEquals(q.pollFirst().intValue(), 2);
         assertEquals(q.peek().intValue(), 1);
 
     }
@@ -1024,7 +928,6 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
         assertEquals(q.peek().intValue(), 1);
     }
 
-
     public void testPollFirstWithStringMinHeapContainsNElements() {
         MinMaxPriorityQueue<String> q = MinMaxPriorityQueue.create();
         Collections.addAll(q, "apple", "orange", "pineapple", "banana");
@@ -1046,27 +949,6 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
         Collections.addAll(q, 1, 7, 2, 56, 2, 5, 23, 68, 0, 3,10, 99 , 6, 101);
         assertEquals(q.pollFirst().intValue(), 101);
         assertEquals(q.peek().intValue(), 99);
-    }
-
-    public void testPollFirstWithIntegerMinHeapContainsNElements2() {
-        MinMaxPriorityQueue<Integer> q = MinMaxPriorityQueue.create();
-        Collections.addAll(q, 1,2,3,4,5,6,5,6,5,6,5,6,5,6,5,
-                6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,
-                5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,
-                6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,
-                5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,
-                6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,
-                5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,
-                6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,
-                5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,
-                6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,
-                5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,
-                6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,
-                5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,
-                6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,
-                5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,5,6,32769,-4,0,7,8,9,10);
-        assertEquals(q.pollFirst().intValue(), -4);
-        assertEquals(q.peek().intValue(), 0);
     }
 
     public void testPollFirstWithStringMaxHeapContainsNElements() {
@@ -1154,17 +1036,6 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
         assertEquals(q.peek(), "bcd");
     }
 
-    public void testPollLastWithStringMaxHeapContainsTwoElements2() {
-        try{
-        MinMaxPriorityQueue<String> q = MinMaxPriorityQueue.orderedBy(Ordering.natural().reverse()).create();
-        q.add("abc");
-        q.add("257aaaaaaaabcbc");
-        assertEquals(q.pollLast(), "257aaaaaaaabcbc");
-        assertEquals(q.peek(), "abc");} catch (Exception e){
-
-        }
-    }
-
     public void testPollLastWithNodeMaxHeapContainsTwoElements() {
         MinMaxPriorityQueue<Node> q =  MinMaxPriorityQueue.orderedBy(Ordering.natural().reverse()).create();
         Node node1 = new Node(1);
@@ -1184,24 +1055,9 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
         assertEquals(q.peek().intValue(), 0);
     }
 
-    public void testPollLastWithIntegerMinHeapContainsNElements2() {
-        MinMaxPriorityQueue<Integer> q = MinMaxPriorityQueue.create();
-        Collections.addAll(q, 0, 2, 3, 4, 251, 6, 336025844, 8, 9, 10);
-        assertEquals(q.pollLast().intValue(), 336025844);
-        assertEquals(q.peek().intValue(), 0);
-    }
-
     public void testPollLastWithStringMinHeapContainsNElements() {
         MinMaxPriorityQueue<String> q = MinMaxPriorityQueue.create();
         Collections.addAll(q, "apple", "orange", "pineapple", "banana");
-
-        assertEquals(q.pollLast(), "pineapple");
-        assertEquals(q.peek(), "apple");
-    }
-
-    public void testPollLastWithStringMinHeapContainsNElements2() {
-        MinMaxPriorityQueue<String> q = MinMaxPriorityQueue.create();
-        Collections.addAll(q, "apple", "orange", "pineapple", "banana","apple", "orange", "pineapple", "banana","apple", "orange", "pineapple", "banana","apple", "orange", "pineapple", "banana","apple", "orange", "pineapple", "banana","apple", "orange", "pineapple", "banana");
 
         assertEquals(q.pollLast(), "pineapple");
         assertEquals(q.peek(), "apple");
@@ -1222,23 +1078,9 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
         assertEquals(q.peek().intValue(), 101);
     }
 
-    public void testPollLastWithIntegerMaxHeapContainsNElements2() {
-        MinMaxPriorityQueue<Integer> q = MinMaxPriorityQueue.orderedBy(Ordering.natural().reverse()).create();
-        Collections.addAll(q, 1, 7, 2, 56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23,  56, 2, 5, 23, 68, 0, 3,10, 99 , 6, 101);
-        assertEquals(q.pollLast().intValue(), 0);
-        assertEquals(q.peek().intValue(), 101);
-    }
-
     public void testPollLastWithStringMaxHeapContainsNElements() {
         MinMaxPriorityQueue<String> q = MinMaxPriorityQueue.orderedBy(Ordering.natural().reverse()).create();
         Collections.addAll(q, "apple", "orange", "pineapple", "banana" , "pear" , "zoo");
-        assertEquals(q.pollLast(), "apple");
-        assertEquals(q.peek(), "zoo");
-    }
-
-    public void testPollLastWithStringMaxHeapContainsNElements2() {
-        MinMaxPriorityQueue<String> q = MinMaxPriorityQueue.orderedBy(Ordering.natural().reverse()).create();
-        Collections.addAll(q, "apple", "orange", "pineapple", "banana" , "pear" , "zoo", " banananananananananananaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananananae");
         assertEquals(q.pollLast(), "apple");
         assertEquals(q.peek(), "zoo");
     }
@@ -1253,12 +1095,6 @@ public class MinMaxPriorityQueueTestCustom extends TestCase {
     public void testToArray() {
         ArrayList<Integer> N = new ArrayList<>();
         N.addAll(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11));
-        MinMaxPriorityQueue<Integer> queue = MinMaxPriorityQueue.create(N);
-        assertEquals(N.size(), queue.toArray().length);
-    }
-    public void testToArray2() {
-        ArrayList<Integer> N = new ArrayList<>();
-        N.addAll(Arrays.asList(1, 2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,22222222, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6,2, 3, 4, 5, 6, 7, 8, 9, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 10, 11));
         MinMaxPriorityQueue<Integer> queue = MinMaxPriorityQueue.create(N);
         assertEquals(N.size(), queue.toArray().length);
     }
